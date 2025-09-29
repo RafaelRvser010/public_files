@@ -1,0 +1,366 @@
+
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot wheels</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=NMHziWQzr6ng81nxXKyNjGwFroJliz__TA2S-1dazQ2EDwgDlHzvEwAARA3invU8PFxPFCLtvcsTfe3mx4qzh087pVRH7IX6Cvzol_aRsaJR_Hg--wAkewKN7ChEXqm8JlWCckgvYKpd3qFacd8C8w" charset="UTF-8"></script>
+</head>
+<body class="not-loaded">
+  <audio id="musica-fondo" src="https://github.com/RafaelRvser010/public_files/raw/main/Danny%20Ocean%20-%20Coraz%C3%B3n.mp3"></audio>
+  <div id="pantalla-inicio" style="position:fixed;z-index:99999;top:0;left:0;width:100vw;height:100vh;background:#0a2a5a;display:flex;align-items:center;justify-content:center;flex-direction:column;">
+    <button id="btn-iniciar" style="font-size:2rem;padding:1em 2em;border-radius:1em;border:none;background:#fffbe7;color:#0a2a5a;box-shadow:0 2px 18px #0005;cursor:pointer;">apreta aquí</button>
+  </div>
+  <div id="contenido-web" style="display:none;">
+  <div class="night"></div>
+
+  <!-- Texto romántico tipo título -->
+  <div class="special-text">
+    Felices 2 meses❤!
+  </div>
+
+  <!-- Detalles decorativos Hot Wheels -->
+  <div class="hotwheels-decor">
+    <!-- Destellos animados -->
+    <div class="sparkle sparkle--1"></div>
+    <div class="sparkle sparkle--2"></div>
+    <div class="sparkle sparkle--3"></div>
+    <div class="sparkle sparkle--4"></div>
+    <div class="sparkle sparkle--5"></div>
+    <!-- Líneas de velocidad -->
+    <div class="speedline speedline--1"></div>
+    <div class="speedline speedline--2"></div>
+    <div class="speedline speedline--3"></div>
+    <!-- Partículas flotantes -->
+    <div class="hw-particle hw-particle--1"></div>
+    <div class="hw-particle hw-particle--2"></div>
+    <div class="hw-particle hw-particle--3"></div>
+    <div class="hw-particle hw-particle--4"></div>
+    <div class="hw-particle hw-particle--5"></div>
+  </div>
+  
+
+  
+
+  <!-- Modal para mostrar la imagen y el mensaje (fuera de .flowers para no bloquear clics) -->
+  <div id="modal-flor" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); align-items:center; justify-content:center; flex-direction:column;">
+    <span id="cerrar-modal" style="position:absolute; top:2vmin; right:4vmin; font-size:5vmin; color:#fff; cursor:pointer; font-family:sans-serif;">&times;</span>
+    <img id="modal-img" src="" alt="Hot Wheels" style="max-width:80vw; max-height:60vh; border-radius:2vmin; box-shadow:0 0 30px #fff8; margin-bottom:2vmin;">
+    <div id="modal-msg" style="color:#fff; font-size:3vmin; text-align:center; max-width:80vw; font-family: 'Segoe UI', Arial, sans-serif;"></div>
+  </div>
+  <div class="flowers">
+  <div class="flower flower--1" style="left: 0%; bottom: 18vmin; transform: rotate(-40deg); animation: moving-flower-1 4s linear infinite;" onclick="mostrarModalFlor(0)">
+  <img class="flower__img--bg" src="https://i.postimg.cc/RhKXtRwp/a20fa7fa0c256ea866ceffbc27989923.png" alt="Fondo flor" draggable="false" style="position:absolute; left:50%; top:-3vmin; transform:translateX(-50%); width:32vmin; height:32vmin; z-index:1; opacity:0.95; pointer-events:none; user-select:none;"/>
+  <img src="https://i.pinimg.com/1200x/3a/1b/b7/3a1bb7423480602f921e32facb0712f2.jpg" alt="Girasol" style="width: 24vmin; height: 24vmin; border-radius: 50%; object-fit: cover; position: absolute; left: 50%; top: 0; transform: translateX(-50%); box-shadow: 0 2px 18px #0005; z-index: 10; animation: blooming-flower 2s backwards;">
+      <div class="flower__line" style="animation: grow-flower-tree 4s backwards;"></div>
+    </div>
+  <div class="flower flower--2" style="left: 10%; bottom: 20vmin; transform: rotate(-30deg); animation: moving-flower-2 4s linear infinite;" onclick="mostrarModalFlor(1)">
+  <img class="flower__img--bg" src="https://i.postimg.cc/RhKXtRwp/a20fa7fa0c256ea866ceffbc27989923.png" alt="Fondo flor" draggable="false" style="position:absolute; left:50%; top:-3vmin; transform:translateX(-50%); width:32vmin; height:32vmin; z-index:1; opacity:0.95; pointer-events:none; user-select:none;"/>
+  <img src="https://i.pinimg.com/1200x/3a/1b/b7/3a1bb7423480602f921e32facb0712f2.jpg" alt="Girasol" style="width: 24vmin; height: 24vmin; border-radius: 50%; object-fit: cover; position: absolute; left: 50%; top: 0; transform: translateX(-50%); box-shadow: 0 2px 18px #0005; z-index: 10; animation: blooming-flower 2s 0.2s backwards;">
+      <div class="flower__line" style="animation: grow-flower-tree 4s 0.2s backwards;"></div>
+    </div>
+  <div class="flower flower--3" style="left: 20%; bottom: 16vmin; transform: rotate(-20deg); animation: moving-flower-3 4s linear infinite;" onclick="mostrarModalFlor(2)">
+  <img class="flower__img--bg" src="https://i.postimg.cc/RhKXtRwp/a20fa7fa0c256ea866ceffbc27989923.png" alt="Fondo flor" draggable="false" style="position:absolute; left:50%; top:-3vmin; transform:translateX(-50%); width:32vmin; height:32vmin; z-index:1; opacity:0.95; pointer-events:none; user-select:none;"/>
+  <img src="https://i.pinimg.com/1200x/3a/1b/b7/3a1bb7423480602f921e32facb0712f2.jpg" alt="Girasol" style="width: 24vmin; height: 24vmin; border-radius: 50%; object-fit: cover; position: absolute; left: 50%; top: 0; transform: translateX(-50%); box-shadow: 0 2px 18px #0005; z-index: 10; animation: blooming-flower 2s 0.4s backwards;">
+      <div class="flower__line" style="animation: grow-flower-tree 4s 0.4s backwards;"></div>
+    </div>
+  <div class="flower flower--4" style="left: 30%; bottom: 22vmin; transform: rotate(-10deg); animation: moving-flower-4 3.5s linear infinite;" onclick="mostrarModalFlor(3)">
+  <img class="flower__img--bg" src="https://i.postimg.cc/RhKXtRwp/a20fa7fa0c256ea866ceffbc27989923.png" alt="Fondo flor" draggable="false" style="position:absolute; left:50%; top:-3vmin; transform:translateX(-50%); width:32vmin; height:32vmin; z-index:1; opacity:0.95; pointer-events:none; user-select:none;"/>
+  <img src="https://i.pinimg.com/1200x/3a/1b/b7/3a1bb7423480602f921e32facb0712f2.jpg" alt="Girasol" style="width: 24vmin; height: 24vmin; border-radius: 50%; object-fit: cover; position: absolute; left: 50%; top: 0; transform: translateX(-50%); box-shadow: 0 2px 18px #0005; z-index: 10; animation: blooming-flower 2s 0.6s backwards;">
+      <div class="flower__line" style="animation: grow-flower-tree 4s 0.6s backwards;"></div>
+    </div>
+  <div class="flower flower--5" style="left: 40%; bottom: 15vmin; transform: rotate(-5deg); animation: moving-flower-5 4.5s linear infinite;" onclick="mostrarModalFlor(4)">
+  <img class="flower__img--bg" src="https://i.postimg.cc/RhKXtRwp/a20fa7fa0c256ea866ceffbc27989923.png" alt="Fondo flor" draggable="false" style="position:absolute; left:50%; top:-3vmin; transform:translateX(-50%); width:32vmin; height:32vmin; z-index:1; opacity:0.95; pointer-events:none; user-select:none;"/>
+  <img src="https://i.pinimg.com/1200x/3a/1b/b7/3a1bb7423480602f921e32facb0712f2.jpg" alt="Girasol" style="width: 24vmin; height: 24vmin; border-radius: 50%; object-fit: cover; position: absolute; left: 50%; top: 0; transform: translateX(-50%); box-shadow: 0 2px 18px #0005; z-index: 10; animation: blooming-flower 2s 0.8s backwards;">
+      <div class="flower__line" style="animation: grow-flower-tree 4s 0.8s backwards;"></div>
+    </div>
+  <div class="flower flower--6" style="left: 60%; bottom: 19vmin; transform: rotate(5deg); animation: moving-flower-1 4s linear infinite;" onclick="mostrarModalFlor(5)">
+  <img class="flower__img--bg" src="https://i.postimg.cc/RhKXtRwp/a20fa7fa0c256ea866ceffbc27989923.png" alt="Fondo flor" draggable="false" style="position:absolute; left:50%; top:-3vmin; transform:translateX(-50%); width:32vmin; height:32vmin; z-index:1; opacity:0.95; pointer-events:none; user-select:none;"/>
+  <img src="https://i.pinimg.com/736x/87/4e/fe/874efe0177e0945fce407f50df73abfe.jpg" alt="Girasol" style="width: 24vmin; height: 24vmin; border-radius: 50%; object-fit: cover; position: absolute; left: 50%; top: 0; transform: translateX(-50%); box-shadow: 0 2px 18px #0005; z-index: 10; animation: blooming-flower 2s 1s backwards;">
+      <div class="flower__line" style="animation: grow-flower-tree 4s 1s backwards;"></div>
+    </div>
+  <div class="flower flower--7" style="left: 70%; bottom: 17vmin; transform: rotate(10deg); animation: moving-flower-2 4s linear infinite;" onclick="mostrarModalFlor(6)">
+  <img class="flower__img--bg" src="https://i.postimg.cc/RhKXtRwp/a20fa7fa0c256ea866ceffbc27989923.png" alt="Fondo flor" draggable="false" style="position:absolute; left:50%; top:-3vmin; transform:translateX(-50%); width:32vmin; height:32vmin; z-index:1; opacity:0.95; pointer-events:none; user-select:none;"/>
+  <img src="https://i.pinimg.com/1200x/3a/1b/b7/3a1bb7423480602f921e32facb0712f2.jpg" alt="Girasol" style="width: 24vmin; height: 24vmin; border-radius: 50%; object-fit: cover; position: absolute; left: 50%; top: 0; transform: translateX(-50%); box-shadow: 0 2px 18px #0005; z-index: 10; animation: blooming-flower 2s 1.2s backwards;">
+      <div class="flower__line" style="animation: grow-flower-tree 4s 1.2s backwards;"></div>
+    </div>
+  <div class="flower flower--8" style="left: 80%; bottom: 21vmin; transform: rotate(20deg); animation: moving-flower-3 4s linear infinite;" onclick="mostrarModalFlor(7)">
+  <img class="flower__img--bg" src="https://i.postimg.cc/RhKXtRwp/a20fa7fa0c256ea866ceffbc27989923.png" alt="Fondo flor" draggable="false" style="position:absolute; left:50%; top:-3vmin; transform:translateX(-50%); width:32vmin; height:32vmin; z-index:1; opacity:0.95; pointer-events:none; user-select:none;"/>
+  <img src="https://i.pinimg.com/736x/87/4e/fe/874efe0177e0945fce407f50df73abfe.jpg" alt="Girasol" style="width: 24vmin; height: 24vmin; border-radius: 50%; object-fit: cover; position: absolute; left: 50%; top: 0; transform: translateX(-50%); box-shadow: 0 2px 18px #0005; z-index: 10; animation: blooming-flower 2s 1.4s backwards;">
+      <div class="flower__line" style="animation: grow-flower-tree 4s 1.4s backwards;"></div>
+    </div>
+  <div class="flower flower--9" style="left: 90%; bottom: 14vmin; transform: rotate(30deg); animation: moving-flower-4 3.5s linear infinite;" onclick="mostrarModalFlor(8)">
+  <img class="flower__img--bg" src="https://i.postimg.cc/RhKXtRwp/a20fa7fa0c256ea866ceffbc27989923.png" alt="Fondo flor" draggable="false" style="position:absolute; left:50%; top:-3vmin; transform:translateX(-50%); width:32vmin; height:32vmin; z-index:1; opacity:0.95; pointer-events:none; user-select:none;"/>
+  <img src="https://i.pinimg.com/736x/87/4e/fe/874efe0177e0945fce407f50df73abfe.jpg" alt="Girasol" style="width: 24vmin; height: 24vmin; border-radius: 50%; object-fit: cover; position: absolute; left: 50%; top: 0; transform: translateX(-50%); box-shadow: 0 2px 18px #0005; z-index: 10; animation: blooming-flower 2s 1.6s backwards;">
+      <div class="flower__line" style="animation: grow-flower-tree 4s 1.6s backwards;"></div>
+    </div>
+  <div class="flower flower--10" style="left: 100%; bottom: 23vmin; transform: rotate(40deg); animation: moving-flower-5 4.5s linear infinite;" onclick="mostrarModalFlor(9)">
+  <img class="flower__img--bg" src="https://i.postimg.cc/RhKXtRwp/a20fa7fa0c256ea866ceffbc27989923.png" alt="Fondo flor" draggable="false" style="position:absolute; left:50%; top:-3vmin; transform:translateX(-50%); width:32vmin; height:32vmin; z-index:1; opacity:0.95; pointer-events:none; user-select:none;"/>
+  <img src="https://i.pinimg.com/1200x/3a/1b/b7/3a1bb7423480602f921e32facb0712f2.jpg" alt="Girasol" style="width: 24vmin; height: 24vmin; border-radius: 50%; object-fit: cover; position: absolute; left: 50%; top: 0; transform: translateX(-50%); box-shadow: 0 2px 18px #0005; z-index: 10; animation: blooming-flower 2s 1.8s backwards;">
+      <div class="flower__line" style="animation: grow-flower-tree 4s 1.8s backwards;"></div>
+    </div>
+
+    <div class="grow-ans" style="--d:1.2s">
+      <div class="flower__g-long">
+        <div class="flower__g-long__top"></div>
+        <div class="flower__g-long__bottom"></div>
+      </div>
+    </div>
+
+    <div class="growing-grass">
+      <div class="flower__grass flower__grass--1">
+        <div class="flower__grass--top"></div>
+        <div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--6"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--7"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--8"></div>
+        <div class="flower__grass__overlay"></div>
+      </div>
+    </div>
+
+    <div class="growing-grass">
+      <div class="flower__grass flower__grass--2">
+        <div class="flower__grass--top"></div>
+        <div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--6"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--7"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--8"></div>
+        <div class="flower__grass__overlay"></div>
+      </div>
+    </div>
+
+    <div class="growing-grass">
+      <div class="flower__grass flower__grass--3">
+        <div class="flower__grass--top"></div>
+        <div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--6"></div>
+        <div class="flower__grass__overlay"></div>
+      </div>
+    </div>
+
+    <div class="growing-grass">
+      <div class="flower__grass flower__grass--4">
+        <div class="flower__grass--top"></div>
+        <div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+        <div class="flower__grass__overlay"></div>
+      </div>
+    </div>
+
+    <div class="growing-grass">
+      <div class="flower__grass flower__grass--5">
+        <div class="flower__grass--top"></div>
+        <div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+        <div class="flower__grass__overlay"></div>
+      </div>
+    </div>
+
+    <div class="growing-grass">
+      <div class="flower__grass flower__grass--6">
+        <div class="flower__grass--top"></div>
+        <div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--6"></div>
+        <div class="flower__grass__overlay"></div>
+      </div>
+    </div>
+
+    <div class="growing-grass">
+      <div class="flower__grass flower__grass--7">
+        <div class="flower__grass--top"></div>
+        <div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+        <div class="flower__grass__overlay"></div>
+      </div>
+    </div>
+
+    <div class="growing-grass">
+      <div class="flower__grass flower__grass--8">
+        <div class="flower__grass--top"></div>
+        <div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+        <div class="flower__grass__overlay"></div>
+      </div>
+    </div>
+
+    <div class="growing-grass">
+      <div class="flower__grass flower__grass--9">
+        <div class="flower__grass--top"></div>
+        <div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+        <div class="flower__grass__overlay"></div>
+      </div>
+    </div>
+
+    <div class="growing-grass">
+      <div class="flower__grass flower__grass--10">
+        <div class="flower__grass--top"></div>
+        <div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+        <div class="flower__grass__overlay"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Datos de imágenes y mensajes románticos para cada Hot Wheels
+    const floresData = [
+      {
+        img: "https://i.pinimg.com/736x/48/73/32/4873329538169dc4a690e0325b1c87a0.jpg",
+        msg: "Me encanta cómo logras hacerme sonreír incluso en los días difíciles. Gracias por existir en mi vida."
+      },
+      {
+        img: "https://i.pinimg.com/736x/79/ec/ac/79ecac74713a50d35d39a1d94245ed99.jpg",
+        msg: "Tu abrazo es mi lugar favorito, donde todo se siente seguro y perfecto."
+      },
+      {
+        img: "https://i.pinimg.com/1200x/3a/1b/b7/3a1bb7423480602f921e32facb0712f2.jpg",
+        msg: "Admiro tu forma de ver la vida y cómo haces que cada momento juntos sea especial."
+      },
+      {
+        img: "https://i.pinimg.com/1200x/3a/1b/b7/3a1bb7423480602f921e32facb0712f2.jpg",
+        msg: "Eres ese pensamiento bonito que me acompaña todo el día."
+      },
+      {
+        img: "https://i.pinimg.com/1200x/3a/1b/b7/3a1bb7423480602f921e32facb0712f2.jpg",
+        msg: "A tu lado aprendí que el amor se demuestra en los pequeños detalles."
+      },
+      {
+        img: "https://i.pinimg.com/736x/87/4e/fe/874efe0177e0945fce407f50df73abfe.jpg",
+        msg: "Gracias por ser mi apoyo, mi alegría y mi mejor compañía."
+      },
+      {
+        img: "https://i.pinimg.com/1200x/3a/1b/b7/3a1bb7423480602f921e32facb0712f2.jpg",
+        msg: "Contigo, cada día es una oportunidad para ser feliz."
+      },
+      {
+        img: "https://i.pinimg.com/736x/87/4e/fe/874efe0177e0945fce407f50df73abfe.jpg",
+        msg: "Gracias por llegar a mi vida de la manera más bonita"
+      },
+      {
+        img: "https://i.pinimg.com/736x/87/4e/fe/874efe0177e0945fce407f50df73abfe.jpg",
+        msg: "Recuerda que soy Chiclayanita de ojos chinos. Te quiero"
+      },
+      {
+        img: "https://i.pinimg.com/1200x/3a/1b/b7/3a1bb7423480602f921e32facb0712f2.jpg",
+        msg: "Tu me gustas, tu me encantas, mi fav"
+      }
+      
+    ];
+
+    function mostrarModalFlor(idx) {
+      const modal = document.getElementById('modal-flor');
+      const modalImg = document.getElementById('modal-img');
+      const modalMsg = document.getElementById('modal-msg');
+      modalImg.src = floresData[idx].img;
+      modalMsg.textContent = floresData[idx].msg;
+      modal.style.display = 'flex';
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('cerrar-modal').onclick = function() {
+        document.getElementById('modal-flor').style.display = 'none';
+      };
+      // Cerrar modal al hacer click fuera de la imagen
+      document.getElementById('modal-flor').addEventListener('click', function(e) {
+        if (e.target === this) this.style.display = 'none';
+      });
+    });
+    onload = () => {
+      const c = setTimeout(() => {
+        document.body.classList.remove("not-loaded");
+        
+        clearTimeout(c);
+      }, 1000);
+    };
+
+    // Partículas blancas emergiendo desde abajo
+    function lanzarParticula() {
+      const container = document.querySelector('.particles');
+      if (!container) return;
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      // Posición horizontal aleatoria
+      particle.style.left = (Math.random() * 100) + 'vw';
+      // Tamaño aleatorio
+      const size = (Math.random() * 1.2 + 0.6);
+      particle.style.width = size + 'vmin';
+      particle.style.height = size + 'vmin';
+      // Duración aleatoria
+      const dur = Math.random() * 1.2 + 1.7;
+      particle.style.animationDuration = dur + 's';
+      // Opcional: animación de desplazamiento lateral
+      const translateX = (Math.random() - 0.5) * 12;
+      particle.style.transform = `translateX(${translateX}vw)`;
+      container.appendChild(particle);
+      setTimeout(() => {
+        particle.remove();
+      }, dur * 1000);
+    }
+
+    setInterval(() => {
+      // Entre 2 y 5 partículas por ciclo
+      for (let i = 0; i < Math.floor(Math.random() * 3) + 2; i++) {
+        lanzarParticula();
+      }
+    }, 400);
+  </script>
+  </div>
+  <div class="particles"></div>
+  <script>
+    // Pantalla de inicio y música
+    document.addEventListener('DOMContentLoaded', function() {
+      const btn = document.getElementById('btn-iniciar');
+      const musica = document.getElementById('musica-fondo');
+      const pantalla = document.getElementById('pantalla-inicio');
+      const contenido = document.getElementById('contenido-web');
+      btn.addEventListener('click', function() {
+        pantalla.style.display = 'none';
+        contenido.style.display = '';
+        musica.volume = 0.7;
+        musica.play().catch(() => {
+          btn.textContent = 'Dale play a la música arriba';
+        });
+        document.body.classList.remove("not-loaded");
+      });
+    });
+  </script>
